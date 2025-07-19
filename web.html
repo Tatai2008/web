@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Souhardya - Teen AI Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Check for reduced motion preference
+        const motionOK = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7e22ce',
+                        secondary: '#3b82f6',
+                        dark: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@300;500;700&family=Ubuntu+Mono:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Geologica', sans-serif;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .code-font {
+            font-family: 'Ubuntu Mono', monospace;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px rgba(126, 34, 206, 0.7);
+        }
+        
+        .neon-card {
+            border: 1px solid rgba(126, 34, 206, 0.3);
+            box-shadow: 0 0 15px rgba(126, 34, 206, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .neon-card:hover {
+            box-shadow: 0 0 25px rgba(126, 34, 206, 0.4);
+            transform: translateY(-5px);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #7e22ce, #3b82f6);
+        }
+        
+        .dark .terminal {
+            background-color: #1e293b;
+            color: #f1f5f9;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-dark dark:text-gray-200">
+    <!-- Retro Terminal Navigation -->
+    <nav class="fixed w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm z-50 border-b border-primary/10 transition-colors duration-300">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500 mr-4"></div>
+                    <a href="#" class="code-font text-lg font-bold text-primary">souhardya.exe</a>
+                </div>
+                
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="nav-link font-medium hover:text-primary">~home</a>
+                    <a href="#skills" class="nav-link font-medium hover:text-primary">~skills</a>
+                    <a href="#projects" class="nav-link font-medium hover:text-primary">~projects</a>
+                    <a href="#about" class="nav-link font-medium hover:text-primary">~about</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <i class="fas fa-moon text-gray-600 dark:text-yellow-300"></i>
+                    </button>
+                    
+                    <button class="md:hidden text-gray-600 dark:text-gray-300" id="menu-toggle">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-6">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="code-font">class</span> <span class="text-primary"></span><br>
+                    <span class="ml-8">Souhardya</span><span class="text-primary"></span><br>
+                    <span class="ml-8">Teen<span class="text-primary">.</span>AI_Developer</span><br>
+                    <span class="text-primary"></span>
+                </h1>
+                
+                <div class="mb-8 flex flex-wrap gap-3">
+                    <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">6+ Years Coding</span>
+                    <span class="px-3 py-1 bg-blue-500/10 text-blue-500 rounded-full text-sm">AI Specialist</span>
+                    <span class="px-3 py-1 bg-purple-500/10 text-purple-500 rounded-full text-sm">Cyber Security</span>
+                </div>
+                
+                <p class="mb-8 text-gray-600 dark:text-gray-300">
+                    <span class="code-font text-primary">>></span> 17yo developer from Balurghat blending AI, security, and creative coding solutions
+                </p>
+                
+                <div class="flex space-x-4">
+                    <a href="#projects" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition flex items-center">
+                        <i class="fas fa-code mr-2"></i> My Projects
+                    </a>
+                    <a href="#contact" class="border border-primary text-primary px-6 py-2 rounded-lg hover:bg-purple-50 dark:hover:bg-gray-800 transition flex items-center">
+                        <i class="fas fa-terminal mr-2"></i> Connect
+                    </a>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80">
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary/30 to-blue-500/30 rounded-2xl opacity-20 blur-lg"></div>
+                    <div class="relative w-full h-full rounded-2xl overflow-hidden border-4 border-white dark:border-gray-800 shadow-xl">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/47143d2b-3520-46bd-8d43-9e676e4b38b4.png" alt="Digital avatar of a young Indian developer with code reflections in glasses against purple/blue neon light" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white dark:bg-gray-900 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">
+                <span class="code-font text-primary">my_skills</span><span class="text-primary">:</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Technical Skills -->
+                <div class="neon-card bg-white dark:bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-laptop-code text-primary mr-3"></i>
+                        Technical Stack
+                    </h3>
+                    
+                    <div class="space-y-5">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="code-font">Python.AI</span>
+                                <span class="text-gray-500">Advanced</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="code-font">Java</span>
+                                <span class="text-gray-500">Intermediate</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="code-font">Web Dev</span>
+                                <span class="text-gray-500">Full Stack</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="code-font">CyberSec</span>
+                                <span class="text-gray-500">Pentesting</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Emerging Tech -->
+                <div class="neon-card bg-white dark:bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-brain text-primary mr-3"></i>
+                        AI/ML Focus
+                    </h3>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex flex-col items-center p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                            <i class="fas fa-robot text-2xl text-primary mb-2"></i>
+                            <span class="text-sm text-center">Neural Networks</span>
+                        </div>
+                        <div class="flex flex-col items-center p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                            <i class="fas fa-comment-dots text-2xl text-primary mb-2"></i>
+                            <span class="text-sm text-center">NLP/Chatbots</span>
+                        </div>
+                        <div class="flex flex-col items-center p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                            <i class="fas fa-chart-line text-2xl text-primary mb-2"></i>
+                            <span class="text-sm text-center">Predictive Models</span>
+                        </div>
+                        <div class="flex flex-col items-center p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                            <i class="fas fa-shield-alt text-2xl text-primary mb-2"></i>
+                            <span class="text-sm text-center">AI Security</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Code Snippet Showcase -->
+            <div class="mt-16 max-w-4xl mx-auto">
+                <h3 class="text-xl font-semibold mb-6 text-center flex items-center justify-center">
+                    <i class="fas fa-terminal text-primary mr-3"></i>
+                    Recent Code Explorer
+                </h3>
+                
+                <div class="bg-gray-800 dark:bg-gray-900 rounded-lg overflow-hidden shadow">
+                    <div class="bg-gray-800 dark:bg-gray-900 px-4 py-2 flex">
+                        <div class="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <span class="code-font text-gray-400 ml-4">python: neural_net.py</span>
+                    </div>
+                    <div class="p-4 code-font text-sm md:text-base">
+                        <span class="text-green-400"># AI Model Training</span><br>
+                        <span class="text-blue-400">import</span> tensorflow <span class="text-blue-400">as</span> tf<br>
+                        <br>
+                        <span class="text-purple-400">class</span> <span class="text-yellow-400">NeuralNet</span>:<br>
+                        &nbsp;&nbsp;<span class="text-blue-400">def</span> <span class="text-yellow-400">__init__</span>(<span class="text-gray-400">self</span>):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-gray-400">self</span>.model = tf.keras.Sequential([<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tf.keras.layers.Dense(<span class="text-amber-600">128</span>, activation=<span class="text-amber-300">'relu'</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tf.keras.layers.Dropout(<span class="text-amber-600">0.2</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tf.keras.layers.Dense(<span class="text-amber-600">10</span>, activation=<span class="text-amber-300">'softmax'</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;])<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="text-blue-400">def</span> <span class="text-yellow-400">train</span>(<span class="text-gray-400">self</span>, X, y):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-gray-400">self</span>.model.<span class="text-blue-400">compile</span>(optimizer=<span class="text-amber-300">'adam'</span>,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loss=<span class="text-amber-300">'sparse_categorical_crossentropy'</span>,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;metrics=[<span class="text-amber-300">'accuracy'</span>])<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-green-400"># Training output here...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">
+                <span class="code-font text-primary">featured_projects</span><span class="text-primary">:</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 transition-all hover:shadow-lg">
+                    <div class="h-48 bg-gradient-to-br from-primary/80 to-blue-500/80 flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">AI Project X</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Custom neural network implementation solving [specific problem] with [accuracy/speed] metrics</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs">Python</span>
+                            <span class="px-3 py-1 bg-blue-500/10 text-blue-500 rounded-full text-xs">TensorFlow</span>
+                            <span class="px-3 py-1 bg-purple-500/10 text-purple-500 rounded-full text-xs">NLP</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-sm text-primary hover:underline">View GitHub →</a>
+                            <span class="text-xs text-gray-500">Last Updated: 2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="neon-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-primary flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Security Scanner</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Automated vulnerability detection tool that scans networks for common security weaknesses</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs">Python</span>
+                            <span class="px-3 py-1 bg-blue-500/10 text-blue-500 rounded-full text-xs">Scapy</span>
+                            <span class="px-3 py-1 bg-purple-500/10 text-purple-500 rounded-full text-xs">Networking</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-sm text-primary hover:underline">Demo Available →</a>
+                            <span class="text-xs text-gray-500">Last Updated: 2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="neon-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-globe text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Web App</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Full-stack application with [features] built using [technologies] solving [problem]</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs">JavaScript</span>
+                            <span class="px-3 py-1 bg-blue-500/10 text-blue-500 rounded-full text-xs">React</span>
+                            <span class="px-3 py-1 bg-purple-500/10 text-purple-500 rounded-full text-xs">Node.js</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-sm text-primary hover:underline">Live Demo →</a>
+                            <span class="text-xs text-gray-500">Last Updated: 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center text-primary hover:underline">
+                    View all projects
+                    <i class="fas fa-long-arrow-alt-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-gray-900 px-6">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">
+                    <span class="code-font text-primary">whoami</span><span class="text-primary">:</span>
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">More about my journey in tech</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3af31856-4f33-4d85-9ce3-d07bc7521821.png" alt="Teen developer working on laptop with multiple monitors showing AI code and cybersecurity tools" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3 md:pl-12">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-3 flex items-center">
+                            <i class="fas fa-user-graduate text-primary mr-3"></i>
+                            Academics
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Currently in 11th grade at Atreyee DAV Public School, Balurghat with Computer Science focus. Self-taught programmer since age 11 through online resources and hands-on projects.
+                        </p>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-3 flex items-center">
+                            <i class="fas fa-code text-primary mr-3"></i>
+                            Development Approach
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-3">
+                            I specialize in building practical AI solutions and secure web applications. My projects emphasize clean code, thoughtful architecture, and user-centric design.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Passionate about the intersection of AI and cybersecurity, I'm exploring neural network vulnerabilities and defensive techniques.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 flex items-center">
+                            <i class="fas fa-rocket text-primary mr-3"></i>
+                            Future Goals
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Planning to pursue Computer Science with specialization in AI/ML. Working toward participating in national-level hackathons and publishing research on teenage AI development.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-gradient-to-br from-primary to-blue-600 text-white">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">
+                    <span class="code-font text-white">connect()</span><span class="text-white">;</span>
+                </h2>
+                <p class="mt-2 opacity-90">Let's collaborate on AI/tech projects or discuss ideas</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-paper-plane mr-3"></i>
+                        Quick Links
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <a href="#" class="flex items-center hover:opacity-80 transition">
+                            <i class="fab fa-github mr-3 text-xl"></i>
+                            soon
+                        </a>
+                        <a href="#" class="flex items-center hover:opacity-80 transition">
+                            <i class="fab fa-linkedin-in mr-3 text-xl"></i>
+                            soon
+                        </a>
+                        <a href="#" class="flex items-center hover:opacity-80 transition">
+                            <i class="fas fa-envelope mr-3 text-xl"></i>
+                            soon
+                        </a>
+                        <a href="#" class="flex items-center hover:opacity-80 transition">
+                            <i class="fab fa-discord mr-3 text-xl"></i>
+                            hostagerrescue
+                        </a>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mt-10 mb-4 flex items-center">
+                        <i class="fas fa-map-marker-alt mr-3"></i>
+                        Location
+                    </h3>
+                    <p>Balurghat, West Bengal, India</p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800 dark:text-white">
+                        Send Direct Message
+                    </h3>
+                    
+                    <form class="space-y-4">
+                        <div>
+                            <input type="text" placeholder="Your Name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+                        </div>
+                        <div>
+                            <textarea rows="4" placeholder="Your Message" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-800 dark:border-gray-700 dark:text-white"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white py-2 px-6 rounded-lg hover:bg-purple-700 transition flex items-center justify-center">
+                            <i class="fas fa-paper-plane mr-2"></i> Send
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-900 py-8 px-6 border-t border-gray-100 dark:border-gray-800">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-xl font-bold text-primary">SOUHARDYA</a>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">Teen Developer • AI Enthusiast • Cybersecurity Explorer</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-primary dark:hover:text-primary transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-primary dark:hover:text-primary transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-primary dark:hover:text-primary transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-primary dark:hover:text-primary transition">
+                        <i class="fab fa-discord text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 text-center text-gray-500 dark:text-gray-400 text-sm">
+                <p>Built with <i class="fas fa-heart text-red-500 mx-1"></i> by Souhardya Singha | © 2023 All Rights Reserved</p>
+                <p class="mt-2 code-font">Last compiled: {new Date().toLocaleDateString()}</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Dark mode toggle
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            const icon = this.querySelector('i');
+            if (document.body.classList.contains('dark')) {
+                document.body.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                document.body.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        });
+
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark' || 
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.body.classList.add('dark');
+            document.getElementById('theme-toggle').querySelector('i').classList.add('fa-sun');
+        } else {
+            document.getElementById('theme-toggle').querySelector('i').classList.add('fa-moon');
+        }
+
+        // Simple typewriter effect
+        const typedText = document.getElementById('typed');
+        const textArray = ["AI Developer", "Python Coder", "Security Researcher", "Tech Enthusiast"];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeWriter() {
+            const currentText = textArray[textIndex];
+            
+            if (isDeleting) {
+                typedText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            if (!isDeleting && charIndex === currentText.length) {
+                isDeleting = true;
+                setTimeout(typeWriter, 1500);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % textArray.length;
+                setTimeout(typeWriter, 500);
+            } else {
+                const speed = isDeleting ? 100 : 150;
+                setTimeout(typeWriter, speed);
+            }
+        }
+        
+        // Start the typewriter effect if motion is OK
+        if (motionOK) {
+            setTimeout(typeWriter, 1000);
+        } else {
+            typedText.textContent = textArray[0];
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Animate skill bars on scroll if motion OK
+        function animateSkills() {
+            if (!motionOK) return;
+            const skills = document.querySelectorAll('.skill-bar');
+            skills.forEach(skill => {
+                const width = skill.style.width;
+                skill.style.width = '0';
+                setTimeout(() => {
+                    skill.style.width = width;
+                }, 200);
+            });
+        }
+        
+        // Simple intersection observer for animation triggers
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'skills') {
+                        animateSkills();
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        // Observe sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
